@@ -21,7 +21,7 @@ exports.config = {
   ],
   host           : 'localhost',
   port           : 9515,
-  reporters      : ['dot', 'concise'],
+  reporters      : ['dot'],
   path           : '/',
   logLevel       : 'error',
   coloredLogs    : true,

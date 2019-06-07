@@ -1,6 +1,6 @@
-## OpenFin testing with Webdriver.io v5
+## OpenFin testing with Webdriver.io v4
 
-An example project for testing an OpenFin application with [Webdriver.io v5+](https://webdriver.io) using the test runner configuration approach that should work across Windows, Mac, and Linx and is also compatible with execution on [Testable](https://testable.io).
+An example project for testing an OpenFin application with [Webdriver.io v4](http://v4.webdriver.io) using the test runner configuration approach that should work across Windows, Mac, and Linx and is also compatible with execution on [Testable](https://testable.io).
 
 ### Prerequisites to run locally
 

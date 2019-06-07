@@ -15,11 +15,29 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
     var notificationButton, cpuInfoButton, cpuInfoExitButton;
 
     /**
+     * Select a Window
+     * @param windowHandle handle of the window
+     */
+    function switchWindow(windowHandle) {
+        browser.switchTab(windowHandle);
+        return browser.getTitle();
+    }
+
+    /**
      * Select the window with specified title
      * @param windowTitle window title
      */
     function switchWindowByTitle(windowTitle) {
-        browser.switchWindow(windowTitle);
+        const tabIds = browser.getTabIds();
+        var title = switchWindow(tabIds[handleIndex]);
+        var handleIndex = 0;
+        while (handleIndex < tabIds.length && title !== windowTitle) {
+            handleIndex++;
+            title = switchWindow(tabIds[handleIndex]);
+        }
+        // the window may not be loaded yet, so call itself again if necessary
+        if (title !== windowTitle)
+            switchWindowByTitle(windowTitle);
     }
 
 
@@ -35,7 +53,7 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
                 done(false);
             }
         });
-        return result;
+        return result.value;
     }
 
     /**
@@ -62,31 +80,31 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
         const result = browser.executeAsync(function (done) {
             fin.desktop.System.getVersion(function(v) { console.log(v); done(v); } );
         });
-        should.exist(result);
-        result.should.equal('10.66.41.18');
+        should.exist(result.value);
+        result.value.should.equal('10.66.41.18');
     });
 
     it("Find notification button", () => {
-        const result = $("#desktop-notification");
-        should.exist(result);
-        notificationButton = result;
+        const result = browser.element("#desktop-notification");
+        should.exist(result.value);
+        notificationButton = result.value;
     });
 
     it("Click notification button", () => {
         should.exist(notificationButton);
-        notificationButton.click();
+        browser.elementIdClick(notificationButton.ELEMENT);
     });
 
 
     it("Find CPU Info button", () => {
-        const result = $("#cpu-info");
-        should.exist(result);
-        cpuInfoButton = result;
+        const result = browser.element("#cpu-info");
+        should.exist(result.value);
+        cpuInfoButton = result.value;
     });
 
     it("Click CPU Info button", () => {
         should.exist(cpuInfoButton);
-        const result = cpuInfoButton.click();
+        const result = browser.elementIdClick(cpuInfoButton.ELEMENT);
         browser.pause(3000); // pause just for demo purpose so we can see the window
     });
 
@@ -97,14 +115,14 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
 
 
     it("Find Exit button for CPU Info window", () => {
-        const result = $("#close-app");
-        should.exist(result);
-        cpuInfoExitButton = result;
+        const result = browser.element("#close-app");
+        should.exist(result.value);
+        cpuInfoExitButton = result.value;
     });
 
     it("Click CPU Info Exit button", () => {
         should.exist(cpuInfoExitButton);
-        cpuInfoExitButton.click();
+        browser.elementIdClick(cpuInfoExitButton.ELEMENT);
     });
 
     it('Exit OpenFin Runtime', () => {
