@@ -16,7 +16,7 @@ SET debuggingPort=0
     SET debuggingPort=%2
  )
  IF "%opt%" == "--config" (
-    SET startupURL=%2"="%3
+    SET startupURL=%2
  )
 
 
