@@ -16,7 +16,7 @@ SET debuggingPort=0
     SET debuggingPort=%2
  )
  IF "%opt%" == "--config" (
-    SET startupURL=%2"="%3
+    SET startupURL=%2
  )
 
 
@@ -27,10 +27,8 @@ SET debuggingPort=0
 echo %debuggingPort%
 echo %startupURL%
 
-call TerminateOpenfin.bat
-
 SET openfinLocation=%LocalAppData%\OpenFin
 
-%openfinLocation%\OpenFinRVM.exe --config=%startupURL% --support-email="support@openfin.co" --runtime-arguments="--remote-debugging-port=%debuggingPort%"
+%openfinLocation%\OpenFinRVM.exe --config=%startupURL% --support-email="support@openfin.co" --runtime-arguments="--proxy-server=%testable_proxy% --remote-debugging-port=%debuggingPort%"
 
 ENDLOCAL
