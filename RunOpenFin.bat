@@ -27,8 +27,6 @@ SET debuggingPort=0
 echo %debuggingPort%
 echo %startupURL%
 
-call TerminateOpenfin.bat
-
 SET openfinLocation=%LocalAppData%\OpenFin
 
 %openfinLocation%\OpenFinRVM.exe --config=%startupURL% --support-email="support@openfin.co" --runtime-arguments="--remote-debugging-port=%debuggingPort%"
