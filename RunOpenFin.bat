@@ -28,6 +28,7 @@ echo %debuggingPort%
 echo %startupURL%
 
 rmdir /q /s %localappdata%\OpenFin
+rmdir /q /s %localappdata%\Temp
 
 SET openfinLocation=C:\Users\Administrator\AppData\Local\OpenFin
 
