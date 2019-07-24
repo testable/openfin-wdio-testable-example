@@ -29,6 +29,6 @@ echo %startupURL%
 
 SET openfinLocation=%LocalAppData%\OpenFin
 
-%openfinLocation%\OpenFinRVM.exe --config=%startupURL% --support-email="support@openfin.co" --runtime-arguments="--proxy-server=%testable_proxy% --remote-debugging-port=%debuggingPort%"
+%openfinLocation%\OpenFinRVM.exe --config=%startupURL% --support-email="support@openfin.co" --runtime-arguments="--proxy-server=%testable_proxy% --remote-debugging-port=%debuggingPort% –-ignore-certificate-errors"
 
 ENDLOCAL
