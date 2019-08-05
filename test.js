@@ -52,6 +52,7 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
 
     it('Switch to Hello OpenFin Main window', () => {
         switchWindowByTitle("Hello OpenFin");
+        browser.testableScreenshot('Main');
     });
 
     it('Wait for OpenFin API ready', () => {
@@ -85,6 +86,7 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
 
     it('Switch to CPU Info window', () => {
         switchWindowByTitle("Hello OpenFin CPU Info");
+        browser.testableScreenshot('CPU');
     });
 
 
