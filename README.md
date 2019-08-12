@@ -20,4 +20,33 @@ And that's it. The test will launch openfin as the chromium instance to drive vi
 
 ### Running on Testable
 
-To run this on Testable simply upload all the files or zip up the directory and upload into a Testable scenario. Check out the [Webdriver.io getting started guide](https://docs.testable.io/getting-started/selenium.html) for more details.
+There are a few key differences from [hello-openfin-selenium-example](https://github.com/openfin/hello-openfin-selenium-example) to get this test running on Testable.
+
+**RunOpenFin.bat**
+
+The location of the OpenFin binary is hard-coded to the location on our test runner:
+
+```
+SET openfinLocation=C:\Users\Administrator\AppData\Local\OpenFin
+```
+
+Testable also sets up a proxy for capturing performance metrics on all network requests made by your OpenFin application. This needs to be set as runtime arguments:
+
+```
+%openfinLocation%\OpenFinRVM.exe --config=%startupURL% --runtime-arguments="--proxy-server=%testable_proxy% –-ignore-certificate-errors --remote-debugging-port=%debuggingPort%"
+```
+
+Notice both ```--proxy-server=%testable_proxy%``` and ```--ignore-certificate-errors`` are required to get this working properly.
+
+**app.json**
+
+In your application json we also need to add a runtime argument to ignore certificate errors since all HTTPS requests will be intercepted by the MITM proxy.
+
+```
+"runtime": {
+    "arguments": "--ignore-certificate-errors --enable-chromium-window-alert --allow-http-screen-capture",
+    "version": "stable"
+}
+```
+
+To run this on Testable simply upload all the files, zip up the directory and upload into a Testable scenario, or connect it via a VCS link. Check out the [OpenFin getting started guide](https://docs.testable.io/getting-started/openfin.html) for more details.
