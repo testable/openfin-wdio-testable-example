@@ -1,7 +1,7 @@
 const isWinOS = process.platform === 'win32';
 const launchTarget = isWinOS ? 'RunOpenFin.bat' : `${process.cwd()}/RunOpenFin.sh`;
 
-const CONFIG_URL = isWinOS ? `app_sample.json` : `${process.cwd()}/app_sample.json`;
+const CONFIG_URL = isWinOS ? `${process.cwd()}\\app_sample.json` : `${process.cwd()}/app_sample.json`;
 
 exports.config = {
   specs : [
