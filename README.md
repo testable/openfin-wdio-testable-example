@@ -36,7 +36,7 @@ Testable also sets up a proxy for capturing performance metrics on all network r
 %openfinLocation%\OpenFinRVM.exe --config=%startupURL% --runtime-arguments="--proxy-server=%testable_proxy% –-ignore-certificate-errors --remote-debugging-port=%debuggingPort%"
 ```
 
-Notice both ```--proxy-server=%testable_proxy%``` and ```--ignore-certificate-errors`` are required to get this working properly.
+Notice both ```--proxy-server=%testable_proxy%``` and ```--ignore-certificate-errors``` are required to get this working properly.
 
 **app.json**
 
