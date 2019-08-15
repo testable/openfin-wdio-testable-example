@@ -23,4 +23,4 @@ export runtimeArgs
 
 echo "Running openfin"
 
-openfin -l -c $CONFIG
+runtimeArgs="--remote-debugging-port=$DEVTOOLS_PORT" openfin -l -c $CONFIG
