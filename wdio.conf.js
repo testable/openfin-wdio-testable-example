@@ -15,7 +15,8 @@ exports.config = {
         binary     : launchTarget,
         args       : [
           `--config=${CONFIG_URL}`
-        ]
+        ],
+	debuggerAddress: `localhost:${DEVTOOLS_PORT}`
       }
     }
   ],
