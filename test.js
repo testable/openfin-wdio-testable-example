@@ -60,24 +60,28 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
     });
 
     it("Find notification button", () => {
+        browser.pause(8000);
         const result = $("#desktop-notification");
         should.exist(result);
         notificationButton = result;
     });
 
     it("Click notification button", () => {
+	browser.pause(8000);
         should.exist(notificationButton);
         notificationButton.click();
     });
 
 
     it("Find CPU Info button", () => {
+        browser.pause(8000);
         const result = $("#cpu-info");
         should.exist(result);
         cpuInfoButton = result;
     });
 
     it("Click CPU Info button", () => {
+        browser.pause(8000);
         should.exist(cpuInfoButton);
         const result = cpuInfoButton.click();
         browser.pause(3000); // pause just for demo purpose so we can see the window
@@ -91,6 +95,7 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
 
 
     it("Find Exit button for CPU Info window", () => {
+        browser.pause(8000);
         const result = $("#close-app");
         should.exist(result);
         cpuInfoExitButton = result;
