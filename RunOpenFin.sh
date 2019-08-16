@@ -19,9 +19,9 @@ do
   fi
 done
 
-# runtimeArgs="--remote-debugging-port=$DEVTOOLS_PORT"
-# export runtimeArgs
+runtimeArgs="--remote-debugging-port=$DEVTOOLS_PORT --enable-chromium-window-alert --allow-http-screen-capture --ignore-certificate-errors"
+export runtimeArgs
 
 echo "Running openfin"
 
-openfin -l -c $CONFIG -p $DEVTOOLS_PORT
+openfin -l -c $CONFIG
