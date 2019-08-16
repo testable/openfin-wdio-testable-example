@@ -18,7 +18,7 @@ do
   fi
 done
 
-runtimeArgs="--remote-debugging-port=$DEVTOOLS_PORT --proxy-server=$TESTABLE_PROXY --ignore-certificate-errors"
+runtimeArgs="--remote-debugging-port=$DEVTOOLS_PORT --proxy-server=$TESTABLE_PROXY --ignore-certificate-errors --proxy-bypass-list=cdn.openfin.co"
 export runtimeArgs
 
 echo "Running openfin"
