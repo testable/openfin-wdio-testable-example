@@ -77,14 +77,6 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
         waitForFinDesktop();
     });
 
-    it('Verify OpenFin Runtime Version', () => {
-        const result = browser.executeAsync(function (done) {
-            fin.desktop.System.getVersion(function(v) { console.log(v); done(v); } );
-        });
-        should.exist(result.value);
-        result.value.should.equal('10.66.41.18');
-    });
-
     it("Find notification button", () => {
         const result = browser.element("#desktop-notification");
         should.exist(result.value);
