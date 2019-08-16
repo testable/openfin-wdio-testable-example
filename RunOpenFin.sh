@@ -17,15 +17,9 @@ do
     CONFIG=${var#*=}
     echo "startup_url==$CONFIG"
   fi
-
-  if [[ $var == --proxy-pac-url* ]] ;
-  then
-    PROXY_PAC_URL=${var#*=}
-    echo "proxy_pac_url==$PROXY_PAC_URL"
-  fi
 done
 
-runtimeArgs="--remote-debugging-port=$DEVTOOLS_PORT --proxy-server=http://$TESTABLE_PROXY --ignore-certificate-errors"
+runtimeArgs="--remote-debugging-port=$DEVTOOLS_PORT"
 export runtimeArgs
 
 echo "Running openfin"
