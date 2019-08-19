@@ -103,7 +103,7 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
 
     it('Close OpenFin Application', () => {
         browser.execute(function () {
-	    fin.desktop.Application.getCurrent().close();
+	    fin.desktop.Application.getCurrent().terminate();
         });
         browser.pause(1000); // pause here to give Runtime time to exit
     });
