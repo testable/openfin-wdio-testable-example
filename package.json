@@ -5,6 +5,7 @@
   "dependencies": {
     "chai": "4.2.0",
     "lodash": "4.17.14",
+    "testable-utils": "0.3.3",
     "webdriverio": "5.10.0",
     "@wdio/cli": "5.10.0",
     "@wdio/dot-reporter": "5.9.3",

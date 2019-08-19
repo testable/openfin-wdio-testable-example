@@ -30,5 +30,8 @@ exports.config = {
   mochaOpts      : {
     ui        : 'bdd',
     timeout   : 500000
+  },
+  before: function() {
+    require('testable-utils');
   }
 };
