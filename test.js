@@ -101,9 +101,9 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
         cpuInfoExitButton.click();
     });
 
-    it('Exit OpenFin Runtime', () => {
+    it('Close OpenFin Application', () => {
         browser.execute(function () {
-            fin.desktop.System.exit();
+	    fin.desktop.Application.getCurrent().close();
         });
         browser.pause(1000); // pause here to give Runtime time to exit
     });
