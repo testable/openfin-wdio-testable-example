@@ -9,7 +9,7 @@ An example project for testing an OpenFin application with [Webdriver.io v5+](ht
 3. Run `npm install` to install all dependencies.
 4. For Windows, install the [Hello OpenFin app](https://install.openfin.co/download/?config=https%3A%2F%2Fcdn.openfin.co%2Fdemos%2Fhello%2Fapp.json&fileName=HelloOpenFin&supportEmail=support%40openfin.co)
 5. For Mac/Linux, install the Testable fork of openfin-cli that makes sure the devtools port works correctly: `npm install -g testable-openfin-cli`.
-6. Download and install [chromedriver](http://chromedriver.chromium.org/downloads).
+6. Download and install [chromedriver v2.37](https://chromedriver.storage.googleapis.com/index.html?path=2.37/) (for compatibility with OpenFin 12.x).
 
 ### Running locally
 
