@@ -30,25 +30,6 @@ The location of the OpenFin binary is hard-coded to the location on our test run
 SET openfinLocation=C:\Users\Administrator\AppData\Local\OpenFin
 ```
 
-Testable also sets up a proxy for capturing performance metrics on all network requests made by your OpenFin application. This needs to be set as runtime arguments:
-
-```
-%openfinLocation%\OpenFinRVM.exe --config=%startupURL% --runtime-arguments="--proxy-server=%testable_proxy% –-ignore-certificate-errors --remote-debugging-port=%debuggingPort%"
-```
-
-Notice both ```--proxy-server=%testable_proxy%``` and ```--ignore-certificate-errors``` are required to get this working properly.
-
-**app.json**
-
-In your application json we also need to add a runtime argument to ignore certificate errors since all HTTPS requests will be intercepted by the MITM proxy.
-
-```
-"runtime": {
-    "arguments": "--ignore-certificate-errors --enable-chromium-window-alert --allow-http-screen-capture",
-    "version": "stable"
-}
-```
-
 **wdio.conf.js**
 
 The config url is set to ``process.env.CONFIG_URL``. This path refers to a modified version of the application config json that will successfully launch multiple times on the same test runner for simulating multiple virtual users per instance.
