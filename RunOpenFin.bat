@@ -26,7 +26,6 @@ SET debuggingPort=0
 
 echo %debuggingPort%
 echo %startupURL%
-echo %testable_proxy%
 
 SET openfinLocation=C:\Users\Administrator\AppData\Local\OpenFin
 
