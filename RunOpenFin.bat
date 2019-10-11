@@ -29,6 +29,6 @@ echo %startupURL%
 
 SET openfinLocation=C:\Users\Administrator\AppData\Local\OpenFin
 
-%openfinLocation%\OpenFinRVM.exe --config=%startupURL% --support-email="support@openfin.co" --runtime-arguments="--remote-debugging-port=%debuggingPort%"
+%openfinLocation%\OpenFinRVM.exe --config=%startupURL% --runtime-arguments="--remote-debugging-port=%debuggingPort%"
 
 ENDLOCAL
