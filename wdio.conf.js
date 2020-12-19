@@ -1,4 +1,4 @@
-const spawnSync = require('child_process').spawnSync;
+const spawn = require('child_process').spawn;
 
 const isWinOS = process.platform === 'win32';
 const launchTarget = isWinOS ? 'RunOpenFin.bat' : `${process.cwd()}/RunOpenFin.sh`;
@@ -63,7 +63,7 @@ exports.config = {
     require('testable-utils');
 
     if (ShouldLaunchBefore) {
-      spawnSync(launchTarget, [`--config=${CONFIG_URL}`, `--remote-debugging-port=${process.env.CHROME_PORT || DefaultDebuggingPort}`]);
+      spawn(launchTarget, [`--config=${CONFIG_URL}`, `--remote-debugging-port=${process.env.CHROME_PORT || DefaultDebuggingPort}`]);
     }
   }
 };

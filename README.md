@@ -35,3 +35,4 @@ SET openfinLocation=C:\Users\Administrator\AppData\Local\OpenFin
 The config url is set to ``process.env.CONFIG_URL``. This path refers to a modified version of the application config json that will successfully launch multiple times on the same test runner for simulating multiple virtual users per instance.
 
 To run this on Testable simply upload all the files, zip up the directory and upload into a Testable scenario, or connect it via a VCS link. Check out the [OpenFin getting started guide](https://docs.testable.io/getting-started/openfin.html) for more details.
+
