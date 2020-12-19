@@ -58,7 +58,7 @@ exports.config = {
     ui        : 'bdd',
     timeout   : 500000
   },
-  before: function() {
+  onWorkerStart: function() {
     console.log('here');
     require('testable-utils');
 
