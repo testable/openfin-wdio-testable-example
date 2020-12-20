@@ -35,3 +35,15 @@ SET openfinLocation=C:\Users\Administrator\AppData\Local\OpenFin
 The config url is set to ``process.env.CONFIG_URL``. This path refers to a modified version of the application config json that will successfully launch multiple times on the same test runner for simulating multiple virtual users per instance.
 
 To run this on Testable simply upload all the files, zip up the directory and upload into a Testable scenario, or connect it via a VCS link. Check out the [OpenFin getting started guide](https://docs.testable.io/getting-started/openfin.html) for more details.
+
+### Note on OpenFin/Chromdriver Compatibility
+
+Because OpenFin is a wrapper around Chromium, it is a best practice to use the Chromedriver version that corresponds to the OpenFin/Chromium version. See [this chart for the mapping](https://docs.testable.io/selenium/openfin.html).
+
+Before OpenFin v13/Chromedriver v76, we could set an alternate "Chrome" binary for Chromedriver (RunOpenFin.\[bat|sh\]) that would launch OpenFin. It uses the debugging port that Chromedriver normally passes to Chrome as an argument (--remote-debugging-port) to enable communication between Chromedriver and the OpenFin runtime.
+
+Chromedriver v76 and later (OpenFin v13+) no longer assign a remote debugging port for Chrome in advance and instead Chrome chooses one itself. So intercepting this argument passed from Chromedriver to Chrome no longer works. Instead we must launch OpenFin BEFORE our test starts on a chosen debugging port and then let Chromedriver know that port via the debuggerAddress chrome option. This tells Chromedriver to connect to our already running OpenFin instance.
+
+When running on Testable, we automatically detect that your application runtime is v13+ and allocate a port for you. This is accessible as the CHROME_PORT environment variable in your test. So you can be confident that if this environment variable exists, you need to launch OpenFin as a before step. 
+
+See this projects wdio.conf.js for an example that supports both approaches and also works on Testable.
