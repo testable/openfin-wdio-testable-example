@@ -35,9 +35,11 @@ exports.config = {
     {
       browserName   : 'chrome',
       chromeOptions : ShouldLaunchBefore ? {
+        w3c             : false,
         extensions      : [],
         debuggerAddress : `localhost:${process.env.CHROME_PORT}`
       } : {
+        w3c        : false,
         extensions : [],
         binary     : launchTarget,
         args       : [
