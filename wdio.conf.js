@@ -61,9 +61,6 @@ exports.config = {
     timeout   : 500000
   },
   onWorkerStart: function() {
-    console.log('here');
-    require('testable-utils');
-
     if (ShouldLaunchBefore) {
       spawn(launchTarget, [`--config=${CONFIG_URL}`, `--remote-debugging-port=${process.env.CHROME_PORT || DefaultDebuggingPort}`]);
     }
