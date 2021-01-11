@@ -22,14 +22,6 @@ And that's it. The test will launch openfin as the chromium instance to drive vi
 
 There are a few key differences from [hello-openfin-selenium-example](https://github.com/openfin/hello-openfin-selenium-example) to get this test running on Testable.
 
-**RunOpenFin.bat**
-
-The location of the OpenFin binary is hard-coded to the location on our test runner:
-
-```
-SET openfinLocation=C:\Users\Administrator\AppData\Local\OpenFin
-```
-
 **wdio.conf.js**
 
 The config url is set to ``process.env.CONFIG_URL``. This path refers to a modified version of the application config json that will successfully launch multiple times on the same test runner for simulating multiple virtual users per instance.
