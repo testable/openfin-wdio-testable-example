@@ -2,7 +2,7 @@ const spawn = require('child_process').spawn;
 const fs = require('fs');
 
 const isWinOS = process.platform === 'win32';
-const launchTarget = isWinOS ? '${process.cwd()}\\RunOpenFin.bat' : `${process.cwd()}/RunOpenFin.sh`;
+const launchTarget = isWinOS ? `${process.cwd()}\\RunOpenFin.bat` : `${process.cwd()}/RunOpenFin.sh`;
 const CONFIG_URL = process.env.CONFIG_URL || (isWinOS ? `${process.cwd()}\\app_sample.json` : `${process.cwd()}/app_sample.json`);
 
 // for Testable runs, rely on the version auto-detect (if CHROME_PORT exists its v13+)
