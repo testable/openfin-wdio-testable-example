@@ -27,6 +27,8 @@ SET debuggingPort=0
 echo %debuggingPort%
 echo %startupURL%
 
-OpenFinRVM.exe --config=%startupURL% --runtime-arguments="--remote-debugging-port=%debuggingPort%"
+SET openfinLocation=C:\Users\Administrator\AppData\Local\OpenFin
+
+%openfinLocation%\OpenFinRVM.exe --config=%startupURL% --runtime-arguments="--remote-debugging-port=%debuggingPort%"
 
 ENDLOCAL
