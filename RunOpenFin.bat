@@ -26,7 +26,7 @@ SET debuggingPort=0
 
 echo %debuggingPort%
 echo %startupURL%
-where OpenFinRVM
+echo %path%
 
 OpenFinRVM.exe --config=%startupURL% --runtime-arguments="--remote-debugging-port=%debuggingPort%"
 
