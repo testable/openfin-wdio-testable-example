@@ -56,7 +56,13 @@ exports.config = {
   },
   onWorkerStart: function () {
     if (ShouldLaunchBefore) {
-      spawn(launchTarget, [`--config=${CONFIG_URL}`, `--remote-debugging-port=${process.env.CHROME_PORT || DefaultDebuggingPort}`]);
+      const proc = spawn(launchTarget, [`--config=${CONFIG_URL}`, `--remote-debugging-port=${process.env.CHROME_PORT || DefaultDebuggingPort}`]);
+      proc.stdout.on('data', (data) => {
+        console.log(data);
+      });
+      proc.stderr.on('data', (data) => {
+        console.log(data);
+      });
     }
   }
 };
