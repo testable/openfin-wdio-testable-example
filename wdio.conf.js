@@ -58,10 +58,10 @@ exports.config = {
     if (ShouldLaunchBefore) {
       const proc = spawn(launchTarget, [`--config=${CONFIG_URL}`, `--remote-debugging-port=${process.env.CHROME_PORT || DefaultDebuggingPort}`]);
       proc.stdout.on('data', (data) => {
-        console.log(data);
+        console.log(data.toString());
       });
       proc.stderr.on('data', (data) => {
-        console.log(data);
+        console.log(data.toString());
       });
     }
   }
