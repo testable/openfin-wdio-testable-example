@@ -46,7 +46,7 @@ exports.config = {
   port: 9515,
   reporters: ['dot', 'concise'],
   path: '/',
-  logLevel: 'error',
+  logLevel: 'debug',
   coloredLogs: true,
   framework: 'mocha',
   waitforTimeout: 20000,
