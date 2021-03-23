@@ -53,6 +53,7 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
     it('Switch to Hello OpenFin Main window', () => {
         switchWindowByTitle("Hello OpenFin");
         browser.testableScreenshot('Main');
+        browser.pause(30000);
     });
 
     it('Wait for OpenFin API ready', () => {
