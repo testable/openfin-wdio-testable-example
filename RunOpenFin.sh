@@ -22,7 +22,7 @@ echo "Running openfin"
 user=$(whoami)
 echo "Running as: $user" 
 
-runtimeArgs="--remote-debugging-port=$DEVTOOLS_PORT --no-sandbox"
+runtimeArgs="--remote-debugging-port=$DEVTOOLS_PORT"
 export runtimeArgs
 
 openfin -l -c $CONFIG
