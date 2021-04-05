@@ -3,7 +3,7 @@
         "name": "Hello OpenFin",
         "url": "https://demoappdirectory.openf.in/desktop/config/apps/OpenFin/HelloOpenFin/index.html",
         "uuid": "OpenFinHelloWorld",
-        "applicationIcon": "https://testable.io/wp-content/uploads/2018/08/logo.png",
+        "applicationIcon": "http://demoappdirectory.openf.in/desktop/config/apps/OpenFin/HelloOpenFin/img/openfin.ico",
         "autoShow": false,
         "defaultHeight": 525,
         "defaultWidth": 395,
