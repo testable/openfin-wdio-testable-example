@@ -19,6 +19,8 @@ do
 done
 
 echo "Running openfin"
+user=$(whoami)
+echo "Running as: $user" 
 
 runtimeArgs="--remote-debugging-port=$DEVTOOLS_PORT"
 export runtimeArgs
