@@ -31,13 +31,13 @@ exports.config = {
       chromeOptions: ShouldLaunchBefore ? {
         w3c: false,
         extensions: [],
-        debuggerAddress: `localhost:${process.env.CHROME_PORT}`
+        debuggerAddress: `localhost:${process.env.CHROME_PORT || DefaultDebuggingPort}`
       } : {
           w3c: false,
           extensions: [],
           binary: launchTarget,
           args: [
-            `--config=${CONFIG_URL}`
+            `--config=${CONFIG_URL || 'app_sample.json'}`
           ]
         }
     }
@@ -56,7 +56,10 @@ exports.config = {
   },
   onWorkerStart: function () {
     if (ShouldLaunchBefore) {
-      spawn(launchTarget, [`--config=${CONFIG_URL}`, `--remote-debugging-port=${process.env.CHROME_PORT || DefaultDebuggingPort}`]);
+      spawn(launchTarget, [`--config=${CONFIG_URL || 'app_sample.json'}`, `--remote-debugging-port=${process.env.CHROME_PORT || DefaultDebuggingPort}`]);
     }
+  },
+  before: function (capabilities, specs, browser) {
+    require('testable-utils').init();
   }
 };
