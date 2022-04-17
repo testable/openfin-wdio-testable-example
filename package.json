@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "chai": "4.2.0",
-    "lodash": "4.17.19",
+    "lodash": "4.17.20",
     "testable-utils": "0.5.11",
     "webdriverio": "6.10.11",
     "@wdio/cli": "6.10.11",
