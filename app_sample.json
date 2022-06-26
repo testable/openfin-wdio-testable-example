@@ -25,6 +25,8 @@
         "version": "stable"
     },
     "splashScreenImage": "https://cdn.openfin.co/demos/hello/splashscreen/splash_hello.png",
-    "shortcut": {},
+    "shortcut": {
+        "name": "Hello OpenFin"
+    },
     "devtools_port": 12565
 }
