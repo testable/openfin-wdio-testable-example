@@ -26,7 +26,8 @@
     },
     "splashScreenImage": "https://cdn.openfin.co/demos/hello/splashscreen/splash_hello.png",
     "shortcut": {
-        "name": "Hello OpenFin"
+        "name": "Hello OpenFin",
+        "company": "OpenFin"
     },
     "devtools_port": 12565
 }
