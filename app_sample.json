@@ -22,7 +22,7 @@
     },
     "runtime": {
         "arguments": "--enable-chromium-window-alert --allow-http-screen-capture",
-        "version": "22.94.67.8"
+        "version": "15.80.50.34"
     },
     "splashScreenImage": "https://cdn.openfin.co/demos/hello/splashscreen/splash_hello.png",
     "shortcut": {
