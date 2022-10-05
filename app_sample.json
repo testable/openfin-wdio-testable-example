@@ -25,6 +25,5 @@
         "version": "26.102.71.7"
     },
     "splashScreenImage": "https://cdn.openfin.co/demos/hello/splashscreen/splash_hello.png",
-    "shortcut": {},
     "devtools_port": 12565
 }
