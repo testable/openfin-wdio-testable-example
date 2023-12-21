@@ -1,48 +1,30 @@
 const spawn = require('child_process').spawn;
-const fs = require('fs');
+const path = require('path');
 
-const isWinOS = process.platform === 'win32';
-const launchTarget = isWinOS ? `${process.cwd()}\\RunOpenFin.bat` : `${process.cwd()}/RunOpenFin.sh`;
-const CONFIG_URL = process.env.CONFIG_URL || (isWinOS ? `${process.cwd()}\\app_sample.json` : `${process.cwd()}/app_sample.json`);
-
-// for Testable runs, rely on the version auto-detect (if CHROME_PORT exists its v13+)
-// for local runs just read it from the app_sample.json file
-const ShouldLaunchBefore = process.env.CONFIG_URL ?
-  typeof process.env.CHROME_PORT !== 'undefined' :
-  localShouldLaunchBefore();
-const DefaultDebuggingPort = 12565; // also specified in app_sample.json
-
-function localShouldLaunchBefore() {
-  const version = JSON.parse(fs.readFileSync('app_sample.json')).runtime.version;
-  if (version) {
-    let index = version.indexOf('.');
-    return index === -1 ? true : Number(version.substring(0, index)) >= 13;
-  }
-  return true;
-}
+const IsTestable = process.env.IS_TESTABLE === 'true';
+const IsWin = process.platform === 'win32';
+const LaunchTarget = path.join(process.cwd(), IsWin ? 'RunOpenFin.bat' : 'RunOpenFin.sh');
+const DebuggingPort = 12565;
 
 exports.config = {
   specs: [
-    'test.js'
+    './test.js'
   ],
   capabilities: [
     {
       browserName: 'chrome',
-      chromeOptions: ShouldLaunchBefore ? {
+      'testable:options': {
+        openfinConfigUrl: 'app_sample.json'
+      },
+      'goog:chromeOptions': IsTestable ? {} : {
         w3c: false,
         extensions: [],
-        debuggerAddress: `localhost:${process.env.CHROME_PORT || DefaultDebuggingPort}`
-      } : {
-          w3c: false,
-          extensions: [],
-          binary: launchTarget,
-          args: [
-            `--config=${CONFIG_URL || 'app_sample.json'}`
-          ]
-        }
+        debuggerAddress: `127.0.0.1:${DebuggingPort}`
+      }
     }
   ],
-  host: 'localhost',
+  maxInstances: 1,
+  host: '127.0.0.1',
   port: 9515,
   reporters: ['dot', 'concise'],
   path: '/',
@@ -55,11 +37,8 @@ exports.config = {
     timeout: 500000
   },
   onWorkerStart: function () {
-    if (ShouldLaunchBefore) {
-      spawn(launchTarget, [`--config=${CONFIG_URL || 'app_sample.json'}`, `--remote-debugging-port=${process.env.CHROME_PORT || DefaultDebuggingPort}`]);
+    if (!IsTestable) {
+      spawn(LaunchTarget, ['--config=app_sample.json', `--remote-debugging-port=${DebuggingPort}`]);
     }
-  },
-  before: function (capabilities, specs, browser) {
-    require('testable-utils').init();
   }
 };
