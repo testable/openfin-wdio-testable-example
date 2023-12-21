@@ -22,6 +22,11 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
         await browser.switchWindow(windowTitle);
     }
 
+    it('Switch to Hello OpenFin Main window', async () => {
+        await switchWindowByTitle("Hello OpenFin");
+        await browser.saveScreenshot('Main.png');
+    });
+
     it("Find notification button", async () => {
         const result = await $("#desktop-notification");
         should.exist(result);
