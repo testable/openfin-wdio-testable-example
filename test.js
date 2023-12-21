@@ -5,10 +5,10 @@
  *
  */
 
-"use strict";
+'use strict';
 
 const should = require('chai').should(),
-      assert = require("assert");
+      assert = require('assert');
 
 
 describe('Hello OpenFin App testing with webdriver.io', function() {
@@ -23,30 +23,30 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
     }
 
     it('Switch to Hello OpenFin Main window', async () => {
-        await switchWindowByTitle("Hello OpenFin");
+        await switchWindowByTitle('Hello OpenFin');
         await browser.saveScreenshot('Main.png');
     });
 
-    it("Find notification button", async () => {
-        const result = await $("#desktop-notification");
+    it('Find notification button', async () => {
+        const result = await $('#desktop-notification');
         should.exist(result);
         notificationButton = result;
     });
 
-    it("Click notification button", async () => {
+    it('Click notification button', async () => {
         should.exist(notificationButton);
         await notificationButton.click();
     });
 
 
-    it("Find CPU Info button", async () => {
-        const result = await $("#cpu-info");
+    it('Find CPU Info button', async () => {
+        const result = await $('#cpu-info');
         should.exist(result);
         cpuInfoButton = result;
         await result.waitForClickable();
     });
 
-    it("Click CPU Info button", async () => {
+    it('Click CPU Info button', async () => {
         should.exist(cpuInfoButton);
         const result = await cpuInfoButton.click();
         await browser.pause(3000); // pause just for demo purpose so we can see the window
@@ -54,18 +54,18 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
 
 
     it('Switch to CPU Info window', async () => {
-        await switchWindowByTitle("Hello OpenFin CPU Info");
+        await switchWindowByTitle('Hello OpenFin CPU Info');
         await browser.saveScreenshot('CPU.png');
     });
 
 
-    it("Find Exit button for CPU Info window", async () => {
-        const result = await $("#close-app");
+    it('Find Exit button for CPU Info window', async () => {
+        const result = await $('#close-app');
         should.exist(result);
         cpuInfoExitButton = result;
     });
 
-    it("Click CPU Info Exit button", async () => {
+    it('Click CPU Info Exit button', async () => {
         should.exist(cpuInfoExitButton);
         await cpuInfoExitButton.click();
     });
